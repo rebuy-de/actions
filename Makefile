@@ -1,10 +1,11 @@
-ACTIONS = $(filter-out docs/, $(wildcard */))
+ACTIONS = $(filter-out docs/ rust-relaser/ recipes/, $(wildcard */))
 
 LIBS = $(addsuffix lib.sh,$(ACTIONS))
 
 all: | $(LIBS) rust-releaser lint
 
 lint:
+	echo $(ACTIONS)
 	act
 
 $(LIBS) : lib.sh
